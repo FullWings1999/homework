@@ -7,7 +7,7 @@ const app = express();
 import { createRequire } from 'module';
 //import articales from './data/articles';
 const require = createRequire(import.meta.url);
-const path = require("path");
+//const path = require("path");
 
 //expresss handlebars 設定
 app.engine('handlebars', engine());
@@ -18,8 +18,8 @@ app.set('views', './views');
 const articles = require("./data/articles");
 
 //定義public floder，網址有/static
-//const path = require("path");
-//app.use("/static",express.static("public"));
+const path = require("path");
+app.use("/static",express.static("public"));
 
 app.get("/",function(req,res){
     res.render("home");
